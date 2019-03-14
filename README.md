@@ -6,4 +6,5 @@
 * BT02 Game Design Document (GDD)
 * BT03 Setting Up Github Repo
 * BT04 Create and Delete Landscapes
-* BT05 a Landscaping Process
+* BT05 Landscape Setup and Scaling
+* BT06 Sculpting tools - a Landscaping Process
