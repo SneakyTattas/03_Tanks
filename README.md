@@ -8,3 +8,4 @@
 * BT04 Create and Delete Landscapes
 * BT05 Landscape Setup and Scaling
 * BT06 Sculpting tools - a Landscaping Process
+* BT07 Using Landscape Layers ( Multi-layered colours )
