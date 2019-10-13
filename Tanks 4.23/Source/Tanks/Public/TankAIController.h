@@ -14,9 +14,11 @@ UCLASS()
 class TANKS_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-	
+
 public:
+	void BeginPlay() override;
+
 	ATank* GetControlledTank() const;
 
-	void BeginPlay() override;
+	ATank* GetPlayerTank() const;
 };
