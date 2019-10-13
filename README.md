@@ -23,3 +23,14 @@
 * BT17 Escape Button + Controller button to exit game
 * BT18 Quick Fix, escape button wasnt working and first package of the game ( version 0.1 )
 * BT19 Quick Update of readme
+* BT20 Making C++ Classes for Tank and TankPlayerController BPs, delegating to components, changing parents classes.  ( 2 hours to fix broken binaries, coding is FUN )
+* BT21 Virtual and override functionality ( if a method is virtual, any descendant of the method will be able to be overriden )
+* BT22 Possessing pawns (other tanks) with AI controllers ( AIs )
+* BT23 Get the AIs to find the player controller
+* BT24 Added Tick() to player controller
+* BT25 Introducing Ray Trace to aim, using an out parameter method ( FVector OutHitLocation )
+* Bt26 Finding AimDot Screen pixel coordinates
+* BT27 DeProjectScreenToWorld() method, ( actually getting the coordinates where the dot points )
+* BT28 LineTraceSingleByChannel() method, using it to line trace from the dot to a straight line the coords
+* BT29 Unify Player and AI Aiming, both using the same interface for aiming
+* BT30 Update of readme
