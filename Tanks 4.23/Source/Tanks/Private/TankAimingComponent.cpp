@@ -37,9 +37,27 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
-void UTankAimingComponent::AimAt(FVector OutHitLocation)
+void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 {
-	auto OurTankName = GetOwner()->GetName();
-	auto BarrelLocation = Barrel->GetComponentLocation().ToString();
-	UE_LOG(LogTemp, Warning, TEXT("%s aiming at: %s from location: %s"), *OurTankName, *OutHitLocation.ToString(), *BarrelLocation);
+	if (!Barrel) { return; }
+
+	FVector OutLaunchVelocity(0);
+	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile")); // I can choose where the projectile will spawn, if I use GetComponentLocation the projectile will spawn at the center point of the barrel
+	if (UGameplayStatics::SuggestProjectileVelocity
+			(
+				this,
+				OutLaunchVelocity,
+				StartLocation,
+				OutHitLocation,
+				LaunchSpeed,
+				false,
+				0,
+				0,
+				ESuggestProjVelocityTraceOption::DoNotTrace
+			)
+		)
+	{
+		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
+		UE_LOG(LogTemp, Warning, TEXT("Firing at %s"), *AimDirection.ToString());
+	}
 }
