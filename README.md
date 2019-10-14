@@ -1,7 +1,7 @@
 ﻿# 03_Tanks
 [Η πουτσα που μου τρωει τη ζωη](https://www.ceid.upatras.gr/el) 
 
-[tips and useful tutorials taken from here](https://www.udemy.com/unrealcourse/learn/v4/overview)
+[tips and useful tutorials taken from here](https://www.udemy.com)
 
 ## List
 * BT01 Intro
@@ -34,3 +34,7 @@
 * BT28 LineTraceSingleByChannel() method, using it to line trace from the dot to a straight line the coords
 * BT29 Unify Player and AI Aiming, both using the same interface for aiming
 * BT30 Update of readme
+* BT31 Introducing AimingComponent to move turret/barrel (moved output log to AimingComponent Class
+* BT32 Using BlueprintCallable() ue4 function to set the barrel component and get its position
+* BT33 SuggestProjectileVelocity Implementation ( // weird out values must check if true )
+* BT34 And Another update of readme
