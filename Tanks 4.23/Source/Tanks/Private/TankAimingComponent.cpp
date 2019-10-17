@@ -18,46 +18,32 @@ void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
 	Barrel = BarrelToSet;
 }
 
-
-// Called when the game starts
-void UTankAimingComponent::BeginPlay()
-{
-	Super::BeginPlay();
-
-	// ...
-	
-}
-
-
-// Called every frame
-void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
-}
-
 void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 {
 	if (!Barrel) { return; }
 
 	FVector OutLaunchVelocity(0);
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile")); // I can choose where the projectile will spawn, if I use GetComponentLocation the projectile will spawn at the center point of the barrel
-	if (UGameplayStatics::SuggestProjectileVelocity
-			(
-			this,
-			OutLaunchVelocity,
-			StartLocation,
-			OutHitLocation,
-			LaunchSpeed,
-			false,
-			0,
-			0,
-			ESuggestProjVelocityTraceOption::DoNotTrace
-			)
-		)
+	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity
+	(
+		this,
+		OutLaunchVelocity,
+		StartLocation,
+		OutHitLocation,
+		LaunchSpeed,
+		ESuggestProjVelocityTraceOption::DoNotTrace
+	);
+	if (bHaveAimSolution)
 	{
-		auto AimDirection = OutLaunchVelocity.GetSafeNormal(); // normalization of vector is bugged, in version 4.23, compiler bug
-		UE_LOG(LogTemp, Warning, TEXT("Aiming at %s"), *AimDirection.ToString());
+		auto AimDirection = OutLaunchVelocity.GetSafeNormal(); // normalization of vector is bugged, in version 4.23, compiler bug, BT35 COMMIT
+		MoveBarrelTowards(AimDirection);
 	}
+}
+
+void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
+{
+	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
+	auto AimAsRotator = AimDirection.Rotation();
+	auto DeltaRotator = AimAsRotator - BarrelRotator;
+	UE_LOG(LogTemp, Warning, TEXT("Aiming as rotator: %s"), *DeltaRotator.ToString())
 }

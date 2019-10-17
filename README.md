@@ -40,3 +40,7 @@
 * BT32 Using BlueprintCallable() ue4 function to set the barrel component and get its position
 * BT33 SuggestProjectileVelocity Implementation ( // weird out values must check if true )
 * BT34 And Another update of readme
+* BT35 Starting the day with a compiler bug, normalisation of vectors in version 4.23 is bugged, workarourd at: MSVC (link in readme) REMEMBER TO CHANGE WHEN ITS FIXED
+* BT36 Forgot to commit updated readme woops
+* BT37 Introducing Rotators in unreal in order to move barrel
+* 
