@@ -3,6 +3,8 @@
 
 [tips and useful tutorials taken from here](https://www.udemy.com)
 
+[BT35 COMMIT: Workarourd of compiler bug to force ue to run on 4.22 version.](https://developercommunity.visualstudio.com/content/problem/734585/msvc-142328019-compilation-bug.html)
+
 ## List
 * BT01 Intro
 * BT02 Game Design Document (GDD)
