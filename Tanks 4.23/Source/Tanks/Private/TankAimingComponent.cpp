@@ -45,19 +45,19 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile")); // I can choose where the projectile will spawn, if I use GetComponentLocation the projectile will spawn at the center point of the barrel
 	if (UGameplayStatics::SuggestProjectileVelocity
 			(
-				this,
-				OutLaunchVelocity,
-				StartLocation,
-				OutHitLocation,
-				LaunchSpeed,
-				false,
-				0,
-				0,
-				ESuggestProjVelocityTraceOption::DoNotTrace
+			this,
+			OutLaunchVelocity,
+			StartLocation,
+			OutHitLocation,
+			LaunchSpeed,
+			false,
+			0,
+			0,
+			ESuggestProjVelocityTraceOption::DoNotTrace
 			)
 		)
 	{
-		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
-		UE_LOG(LogTemp, Warning, TEXT("Firing at %s"), *AimDirection.ToString());
+		auto AimDirection = OutLaunchVelocity.GetSafeNormal(); // normalization of vector is bugged, in version 4.23, compiler bug
+		UE_LOG(LogTemp, Warning, TEXT("Aiming at %s"), *AimDirection.ToString());
 	}
 }
