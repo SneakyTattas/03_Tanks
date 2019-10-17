@@ -31,7 +31,7 @@
 * BT23 Get the AIs to find the player controller
 * BT24 Added Tick() to player controller
 * BT25 Introducing Ray Trace to aim, using an out parameter method ( FVector OutHitLocation )
-* Bt26 Finding AimDot Screen pixel coordinates
+* BT26 Finding AimDot Screen pixel coordinates
 * BT27 DeProjectScreenToWorld() method, ( actually getting the coordinates where the dot points )
 * BT28 LineTraceSingleByChannel() method, using it to line trace from the dot to a straight line the coords
 * BT29 Unify Player and AI Aiming, both using the same interface for aiming
@@ -43,4 +43,6 @@
 * BT35 Starting the day with a compiler bug, normalisation of vectors in version 4.23 is bugged, workarourd at: MSVC (link in readme) REMEMBER TO CHANGE WHEN ITS FIXED
 * BT36 Forgot to commit updated readme woops
 * BT37 Introducing Rotators in unreal in order to move barrel
-* 
+* BT38 New TankBarrel class inherited from StaticMeshComponent, Using BlueprintSpawnableComponent to introduce defaulth properties
+* BT39 Forward Declarations of classes where needed, Fixed SuggestProjectileVelocity which produced a bug with default values
+* BT40 And Another One
