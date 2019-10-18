@@ -46,3 +46,7 @@
 * BT38 New TankBarrel class inherited from StaticMeshComponent, Using BlueprintSpawnableComponent to introduce defaulth properties
 * BT39 Forward Declarations of classes where needed, Fixed SuggestProjectileVelocity which produced a bug with default values
 * BT40 And Another One
+* BT41 Finally moving the barrel and using clamp() to limit max/min values 
+* BT42 Copypasta Barrel elevation code to make the turret rotate, Completed Functioning Turret+Barrel
+* BT43 Adding Projectile C++ class and BP, start of setup
+* BT44 Readme update, fixed bug that resetted turret static mesh to none
